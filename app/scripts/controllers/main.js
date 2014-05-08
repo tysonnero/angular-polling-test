@@ -23,6 +23,12 @@ pollingApp
                     delay: 500
                 });
             },
+            stop: function () {
+
+                console.log('save');
+                poller.stopAll();
+
+            },
             save: function () {
 
                 console.log('save');
@@ -34,10 +40,23 @@ pollingApp
     .controller('MainCtrl', ['$scope', 'PollerService', function ($scope, PollerService) {
 
         $scope.start = function () {
-            PollerService.start();
+
+            if (!$scope.started) {
+                $scope.started = true;
+                PollerService.start();
+            }
+        };
+
+        $scope.stop = function () {
+
+            if ($scope.started) {
+                $scope.started = false;
+                PollerService.stop();
+            }
         };
 
         $scope.save = function () {
+
             PollerService.save();
         };
     }]);
