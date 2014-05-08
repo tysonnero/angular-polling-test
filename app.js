@@ -17,13 +17,13 @@ app.configure(function () {
 app.post('/api/poll1', function (req, res) {
     setTimeout((function () {
         res.send(200)
-    }), 1000);
+    }), 2000);
 });
 
 app.post('/api/poll2', function (req, res) {
     setTimeout((function () {
         res.send(200)
-    }), 1000);
+    }), 2000);
 });
 
 app.post('/api/save', function (req, res) {
